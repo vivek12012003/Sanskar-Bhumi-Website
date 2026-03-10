@@ -312,19 +312,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (isValid) {
-        // Show success feedback
         const btn = enquiryForm.querySelector('.form-submit');
         const originalText = btn.textContent;
-        btn.textContent = '✓ Submitted Successfully!';
-        btn.style.background = 'linear-gradient(135deg, #43A047, #2E7D32)';
+        btn.textContent = 'Submitting...';
         btn.disabled = true;
 
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-          btn.disabled = false;
-          enquiryForm.reset();
-        }, 3000);
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwM-eS6zD7cyP6-38SOBz_YxCMnWxYjqWxKzJodr4HBaJ82AtAc-YlIHFn-xzmLYyN_/exec';
+        const formData = new FormData(enquiryForm);
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+          .then(response => {
+            // Show success feedback
+            btn.textContent = '✓ Submitted Successfully!';
+            btn.style.background = 'linear-gradient(135deg, #43A047, #2E7D32)';
+
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = '';
+              btn.disabled = false;
+              enquiryForm.reset();
+            }, 3000);
+          })
+          .catch(error => {
+            console.error('Error!', error.message);
+            btn.textContent = 'Error! Try Again.';
+            btn.style.background = '#e53935';
+            
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = '';
+              btn.disabled = false;
+            }, 3000);
+          });
       }
     });
   }

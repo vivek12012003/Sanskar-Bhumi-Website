@@ -943,7 +943,26 @@ body.light-theme .stat-img {
 
 @media (max-width: 576px) {
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .stat-card {
+    padding: 24px 12px;
+  }
+  .stat-img-wrap {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+  }
+  .stat-img-wrap img {
+    width: 70%;
+    height: 70%;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
   }
 }
 
@@ -1217,12 +1236,35 @@ body.light-theme .stat-img {
 
 @media (max-width: 576px) {
   .facilities-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
-
-  /* Reset to span 1 column on mobile */
+  .facility-card {
+    height: 240px;
+    border-radius: var(--radius-lg);
+  }
+  .facility-content {
+    padding: 16px 12px;
+  }
+  .facility-icon-wrap {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+  }
+  .facility-icon-wrap .material-symbols-outlined {
+    font-size: 24px;
+  }
+  .facility-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  .facility-card p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  /* Center the last item by spanning 2 columns */
   .facility-card:last-child:nth-child(7) {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 }
 
@@ -2064,18 +2106,21 @@ body.light-theme .stat-img {
     font-size: 1rem;
   }
 
-  .hero-stats {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    width: 100%;
+  /* Fix mobile header spacing & badge */
+  .hero-content {
+    padding-top: 50px;
   }
 
-  .hero-stat-card:nth-child(even) {
-    margin-top: 0;
+  .hero-badge {
+    margin-top: 20px;
+    margin-bottom: 16px;
+    padding: 6px 16px;
   }
 
-  .hero-stat-number {
-    font-size: 1.6rem;
+  /* Stabilize horizontal scroll shifting during entrance animation */
+  [data-animate="fade-left"]:not(.visible),
+  [data-animate="fade-right"]:not(.visible) {
+    transform: translateY(30px);
   }
 
   .facilities-grid {
@@ -2138,37 +2183,27 @@ body.light-theme .stat-img {
     font-size: 2rem;
   }
 
-  .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .hero-stat-card {
-    padding: 18px 12px;
-  }
-
-  .hero-stat-number {
-    font-size: 1.4rem;
-  }
-
-  .facilities-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
   .photo-gallery-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 240px;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 140px;
+    gap: 8px;
   }
 
-  .gallery-item.shape-large,
-  .gallery-item.shape-wide,
-  .gallery-item.shape-tall,
-  .gallery-item.shape-square {
-    grid-column: span 1 !important;
-    grid-row: span 1 !important;
+  .facility-card {
+    height: 220px;
+  }
+
+  .facility-content {
+    padding: 12px 10px;
+  }
+
+  .facility-card h4 {
+    font-size: 1rem;
+  }
+
+  .facility-card p {
+    font-size: 0.75rem;
+    line-height: 1.3;
   }
 
   .hero-buttons {

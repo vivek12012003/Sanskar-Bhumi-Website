@@ -666,16 +666,18 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="student-name">Student Name</label>
-                                <input type="text" id="student-name" placeholder="Enter student name" required />
+                                <input type="text" id="student-name" name="name" placeholder="Enter student name"
+                                    required />
                             </div>
                             <div class="form-group">
                                 <label for="student-phone">Phone Number</label>
-                                <input type="tel" id="student-phone" placeholder="Enter phone number" required />
+                                <input type="tel" id="student-phone" name="phone" placeholder="Enter phone number"
+                                    required />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="class-enquiry">Enquiring Class</label>
-                            <select id="class-enquiry">
+                            <select id="class-enquiry" name="class" required>
                                 <option value="" disabled selected>Select a class</option>
                                 <option value="nursery-kg">Nursery / KG</option>
                                 <option value="1-5">Class 1 – 5</option>
@@ -685,7 +687,8 @@
                         </div>
                         <div class="form-group">
                             <label for="student-message">Your Message</label>
-                            <textarea id="student-message" placeholder="How can we help you?" rows="4"></textarea>
+                            <textarea id="student-message" name="message" placeholder="How can we help you?"
+                                rows="4"></textarea>
                         </div>
                         <button type="submit" class="form-submit">
                             Submit Enquiry
