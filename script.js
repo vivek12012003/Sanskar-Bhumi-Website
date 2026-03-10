@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ============================================ */
 
   // Array of 25 gallery photos
-  const allGalleryPhotos = Array.from({ length: 25 }, (_, i) => `Life at Sanskar Bhumi/${i + 1}.jpeg`);
+  const allGalleryPhotos = Array.from({ length: 25 }, (_, i) => `Life At Sanskar Bhumi/${i + 1}.jpeg`);
 
   // Masonry pattern for dynamic shapes
   const shapePattern = [
