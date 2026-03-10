@@ -147,8 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
      Gallery — Simple Grid & Lightbox
      ============================================ */
 
-  // Array of 25 gallery photos
-  const allGalleryPhotos = Array.from({ length: 25 }, (_, i) => `Life At Sanskar Bhumi/${i + 1}.jpeg`);
+  let allGalleryPhotos = [];
 
   // Masonry pattern for dynamic shapes
   const shapePattern = [
@@ -168,34 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let galleryItems = [];
 
   if (photoGridContainer) {
-    allGalleryPhotos.forEach((photo, index) => {
-      const item = document.createElement('div');
-      const shapeClass = shapePattern[index % shapePattern.length];
+    galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    allGalleryPhotos = galleryItems.map(item => item.querySelector('img').getAttribute('src'));
 
-      item.className = `gallery-item ${shapeClass}`;
-      if (index >= INITIAL_VISIBLE_COUNT) {
-        item.classList.add('d-none'); // Hide items after initial count
-      } else {
-        item.setAttribute('data-animate', 'fade-in');
-        item.setAttribute('data-animate-delay', String((index % 4) + 1));
-      }
-
-      item.innerHTML = `
-        <div class="gallery-item-inner">
-          <img src="${photo}" alt="School Moment ${index + 1}" loading="lazy" />
-          <div class="gallery-item-overlay">
-            <span class="material-symbols-outlined">zoom_in</span>
-          </div>
-        </div>
-      `;
-
+    galleryItems.forEach((item, index) => {
       item.addEventListener('click', () => openLightbox(index));
-      photoGridContainer.appendChild(item);
-
-      // Keep reference
-      galleryItems.push(item);
-
-      // Observe initially visible ones for animation
       if (index < INITIAL_VISIBLE_COUNT) {
         observer.observe(item);
       }
