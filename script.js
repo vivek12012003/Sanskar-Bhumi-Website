@@ -168,7 +168,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (photoGridContainer) {
     galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-    allGalleryPhotos = galleryItems.map(item => item.querySelector('img').getAttribute('src'));
+    allGalleryPhotos = galleryItems.map(item => {
+      const img = item.querySelector('img');
+      if (img) return { type: 'image', src: img.getAttribute('src') };
+      const vid = item.querySelector('video');
+      if (vid) return { type: 'video', src: vid.getAttribute('src') };
+      return null;
+    });
 
     galleryItems.forEach((item, index) => {
       item.addEventListener('click', () => openLightbox(index));
@@ -224,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Lightbox Viewer --- */
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxVideo = document.getElementById('lightbox-video');
   const lightboxClose = document.getElementById('lightbox-close');
   const lightboxPrev = document.getElementById('lightbox-prev');
   const lightboxNext = document.getElementById('lightbox-next');
@@ -241,10 +248,31 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeLightbox() {
     lightbox.classList.remove('open');
     document.body.classList.remove('menu-open');
+    if (lightboxVideo) {
+      lightboxVideo.pause();
+      lightboxVideo.currentTime = 0;
+    }
   }
 
   function updateLightboxImage() {
-    lightboxImg.src = allGalleryPhotos[currentPhotoIndex];
+    const item = allGalleryPhotos[currentPhotoIndex];
+    if (item.type === 'video') {
+      if (lightboxImg) lightboxImg.classList.add('d-none');
+      if (lightboxVideo) {
+        lightboxVideo.classList.remove('d-none');
+        lightboxVideo.src = item.src;
+        lightboxVideo.play();
+      }
+    } else {
+      if (lightboxVideo) {
+        lightboxVideo.classList.add('d-none');
+        lightboxVideo.pause();
+      }
+      if (lightboxImg) {
+        lightboxImg.classList.remove('d-none');
+        lightboxImg.src = item.src;
+      }
+    }
     lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${allGalleryPhotos.length}`;
   }
 
