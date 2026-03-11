@@ -1,5 +1,5 @@
 /* ============================================
-   Sanskar Bhumi English Medium High School
+   Sanskar Bhumi English Medium Higher Secondary School
    Main JavaScript — Interactions & Animations
    ============================================ */
 
