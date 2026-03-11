@@ -840,8 +840,7 @@ textarea {
 @media (max-width: 991px) {
   .hero {
     min-height: auto;
-    padding-top: 110px;
-    /* Gives a ~30px gap below the fixed navbar */
+    padding-top: 75px;
     padding-bottom: 70px;
     align-items: flex-start;
   }
