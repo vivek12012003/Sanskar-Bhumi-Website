@@ -234,6 +234,18 @@ body.light-theme .hamburger span {
   background: var(--text-dark);
 }
 
+body.light-theme .mobile-menu {
+  background: linear-gradient(135deg, var(--surface-cream) 0%, var(--surface-white) 100%);
+}
+
+body.light-theme .mobile-menu a {
+  color: var(--text-body);
+}
+
+body.light-theme .mobile-menu a:hover,
+body.light-theme .mobile-menu a.active {
+  color: var(--text-dark);
+}
 
 /* ============================================
    Reset & Base
