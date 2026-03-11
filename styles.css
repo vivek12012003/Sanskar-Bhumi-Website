@@ -838,11 +838,16 @@ textarea {
 
 /* Responsive */
 @media (max-width: 991px) {
+  .hero {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+
   .hero-container {
     flex-direction: column;
     text-align: center;
-    padding-top: 40px;
-    padding-bottom: 80px;
+    padding-top: 0px;
+    padding-bottom: 40px;
   }
 
   .hero-content {
