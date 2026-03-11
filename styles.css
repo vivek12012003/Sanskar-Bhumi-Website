@@ -783,9 +783,17 @@ textarea {
 }
 
 @keyframes floatIcon {
-  0% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-3px) translateX(2px); }
-  100% { transform: translateY(0) translateX(0); }
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-3px) translateX(2px);
+  }
+
+  100% {
+    transform: translateY(0) translateX(0);
+  }
 }
 
 .hero h1 {
@@ -946,21 +954,26 @@ body.light-theme .stat-img {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+
   .stat-card {
     padding: 24px 12px;
   }
+
   .stat-img-wrap {
     width: 60px;
     height: 60px;
     margin-bottom: 12px;
   }
+
   .stat-img-wrap img {
     width: 70%;
     height: 70%;
   }
+
   .stat-number {
     font-size: 2rem;
   }
+
   .stat-label {
     font-size: 0.8rem;
   }
@@ -1239,29 +1252,36 @@ body.light-theme .stat-img {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+
   .facility-card {
     height: 240px;
     border-radius: var(--radius-lg);
   }
+
   .facility-content {
     padding: 16px 12px;
   }
+
   .facility-icon-wrap {
     width: 44px;
     height: 44px;
     margin-bottom: 12px;
   }
+
   .facility-icon-wrap .material-symbols-outlined {
     font-size: 24px;
   }
+
   .facility-card h4 {
     font-size: 1.1rem;
     margin-bottom: 4px;
   }
+
   .facility-card p {
     font-size: 0.8rem;
     line-height: 1.4;
   }
+
   /* Center the last item by spanning 2 columns */
   .facility-card:last-child:nth-child(7) {
     grid-column: span 2;
@@ -1313,8 +1333,7 @@ body.light-theme .stat-img {
 .leader-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: grayscale(50%);
+  object-fit: contain;
   transition: all var(--transition-slow);
 }
 
