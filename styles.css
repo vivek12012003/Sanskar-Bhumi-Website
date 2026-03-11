@@ -2104,7 +2104,7 @@ body.light-theme .stat-img {
   .hero-content {
     flex-direction: column;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 0px;
   }
 
   .hero-inner {
@@ -2150,11 +2150,11 @@ body.light-theme .stat-img {
 
   /* Fix mobile header spacing & badge */
   .hero-content {
-    padding-top: 50px;
+    padding-top: 0px;
   }
 
   .hero-badge {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 16px;
     padding: 6px 16px;
   }
