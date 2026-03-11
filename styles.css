@@ -839,8 +839,11 @@ textarea {
 /* Responsive */
 @media (max-width: 991px) {
   .hero {
-    padding-top: 50px;
-    padding-bottom: 100px;
+    min-height: auto;
+    padding-top: 120px;
+    /* Accounts for navbar */
+    padding-bottom: 80px;
+    align-items: flex-start;
   }
 
   .hero-container {
